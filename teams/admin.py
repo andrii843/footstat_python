@@ -3,5 +3,15 @@ from django.contrib import admin
 from teams.models import Team
 from teams.models import PlayerShip
 
-admin.site.register(Team)
-admin.site.register(PlayerShip)
+
+class PlayerAdmin(admin.StackedInline):
+    model = PlayerShip
+    
+
+class TeamAdmin(admin.ModelAdmin):
+    model = Team
+    inlines = [PlayerAdmin]
+    list_display = ['id']
+
+    
+admin.site.register(Team, TeamAdmin)
