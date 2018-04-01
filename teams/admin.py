@@ -11,7 +11,7 @@ class PlayerAdmin(admin.StackedInline):
 class TeamAdmin(admin.ModelAdmin):
     model = Team
     inlines = [PlayerAdmin]
-    list_display = ['id']
+    list_display = ['id', 'name']
 
     
 admin.site.register(Team, TeamAdmin)
