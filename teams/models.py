@@ -12,8 +12,12 @@ class Team(models.Model):
     )
     users = models.ManyToManyField(
         User,
-        through='PlayerShip'
+        through='PlayerShip',
+        related_name='players'
     )
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Team'

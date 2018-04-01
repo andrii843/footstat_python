@@ -59,7 +59,9 @@ ROOT_URLCONF = 'footstat.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +135,12 @@ STATIC_URL = '/static/'
 # My settings
 
 AUTH_USER_MODEL = 'users.User'
+
+STATIC_ROOT = 'statifiles'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
