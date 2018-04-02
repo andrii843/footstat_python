@@ -8,6 +8,7 @@ class Score(models.Model):
     from_user = models.ForeignKey(PlayerShip, on_delete=models.CASCADE, related_name='from_user')
     to_user = models.ForeignKey(PlayerShip, on_delete=models.CASCADE, related_name='to_user')
 
-    class Meta():
-        verbose_name = 'Score',
+    class Meta:
+        verbose_name = 'Score'
         verbose_name_plural = 'Scores'
+        unique_together = ('from_user', 'to_user')
