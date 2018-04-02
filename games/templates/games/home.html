@@ -10,25 +10,12 @@
                 <p class="card-text">{{ game.note }}</p>
                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                 4.0 stars
-            </div>
-            <div class="game-teams">
-               Team 1
-                <ul class="game-team">
-                    {% for player in game.team_one.users.all %}
-                        <ul class="game-team">
-                            <li>{{ player }}</li>
-                        </ul>
-                    {% endfor %}
-                </ul>
-                <br>
-                Team 2
-                <ul class="game-team">
-                    {% for player in game.team_two.users.all %}
-                        <ul class="game-team">
-                            <li>{{ player }}</li>
-                        </ul>
-                    {% endfor %}
-                </ul>
+                <div class="game-teams row">
+                    <div class="col col-5 text-right">{{ game.team_one.name }}</div>
+                    <div class="col-2 text-center">vs</div>
+                    <div class="col col-5">{{ game.team_two.name }}</div>
+                </div>
+                <a href="{{ game.get_absolute_url }}" class="btn btn-primary">View details &rarr;</a>
             </div>
         </div>
         <!-- /.card -->

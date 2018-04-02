@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from teams.models import Team
 
@@ -13,3 +14,9 @@ class Game(models.Model):
     class Meta:
         verbose_name = 'Game'
         verbose_name_plural = 'Games'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('games:game_details', args=[self.id])
