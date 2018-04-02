@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'users',
     'games',
     'scores',
+    
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'footstat.urls'
@@ -81,15 +85,15 @@ WSGI_APPLICATION = 'footstat.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-   # 'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-   # }
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'footstat_py',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '123456',
     }
 }
 
@@ -125,6 +129,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 
 # Static files (CSS, JavaScript, Images)

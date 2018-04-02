@@ -10,6 +10,6 @@ class Game(models.Model):
     team_one = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='first_team')
     team_two = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='second_team')
 
-    class Meta():
-        verbose_name = 'Game',
+    class Meta:
+        verbose_name = 'Game'
         verbose_name_plural = 'Games'

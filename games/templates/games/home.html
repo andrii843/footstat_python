@@ -12,8 +12,22 @@
                 4.0 stars
             </div>
             <div class="game-teams">
+               Team 1
                 <ul class="game-team">
-                    <li>{{ game.team_one }}</li>
+                    {% for player in game.team_one.users.all %}
+                        <ul class="game-team">
+                            <li>{{ player }}</li>
+                        </ul>
+                    {% endfor %}
+                </ul>
+                <br>
+                Team 2
+                <ul class="game-team">
+                    {% for player in game.team_two.users.all %}
+                        <ul class="game-team">
+                            <li>{{ player }}</li>
+                        </ul>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
