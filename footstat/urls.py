@@ -19,7 +19,10 @@ from django.urls import path
 from django.conf import settings
 from django.urls import include
 
+from games.views import home_view
+
 urlpatterns = [
+    path('', home_view),
     path('admin/', admin.site.urls),
     path('games/', include('games.urls', namespace='games'))
 ]
