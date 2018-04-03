@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from games.models import Game
+from games.forms import GameForm
 
 
 def home_view(request):
@@ -17,3 +18,12 @@ def game_details_view(request, game_id):
         'game': game
     }
     return render(request, 'games/details.html', context)
+
+
+def game_add_view(request):
+    if request.method == 'GET':
+        form = GameForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'games/create.html', context)
