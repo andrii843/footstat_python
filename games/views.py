@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from games.models import Game
 from games.forms import GameForm
@@ -21,9 +22,14 @@ def game_details_view(request, game_id):
 
 
 def game_add_view(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        form = GameForm(request.POST)
+        if form.is_valid:
+            game = form.save()
+            
+            return redirect(game.get_absolute_url())
+            
+    else:
         form = GameForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'games/create.html', context)
+    
+    return render(request, 'games/create.html', {'form': form})

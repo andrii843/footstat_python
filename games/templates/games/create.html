@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <form action="#">
+    <form method="post">
         <h3>Додавання нової гри</h3>
         {% csrf_token %}
         {% for error in form.non_field_errors %}
@@ -20,7 +20,7 @@
                 {{field}}
             </div>
         {% endfor %}
-        <button class="btn btn-primary" style="width:100%">Login</button>
+        <input type="submit" class="btn btn-primary" value="Зберегти">
     </form>
 
 {% endblock %}

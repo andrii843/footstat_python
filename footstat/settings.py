@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'footstat_py',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '123456',
     }
 }
 
