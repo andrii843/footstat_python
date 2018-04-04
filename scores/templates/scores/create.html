@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form method="post">
+        <h3>Додавання рейтингу для гри</h3>
+        {% csrf_token %}
+        
+        <table>
+            {{ formset }}
+        </table>
+       <input type="submit" value="Save">
+    </form>
+
+{% endblock %}

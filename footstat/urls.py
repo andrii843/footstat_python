@@ -24,7 +24,8 @@ from games.views import home_view
 urlpatterns = [
     path('', home_view),
     path('admin/', admin.site.urls),
-    path('games/', include('games.urls', namespace='games'))
+    path('games/', include('games.urls', namespace='games')),
+    path('scores/', include('scores.urls', namespace='scores')),
 ]
 
 if settings.DEBUG:
