@@ -10,7 +10,7 @@ from teams.models import PlayerShip
 class ScoreForm(forms.ModelForm):
     to_user = forms.CharField(widget=forms.HiddenInput())
     value = forms.CharField(widget=forms.NumberInput(
-        attrs={'class': 'form-control', 'placeholder': 'Оцінка', 'id': 'name'}
+        attrs={'class': 'form-control', 'placeholder': 'Оцінка',}
     ))
 
     class Meta:
@@ -18,4 +18,7 @@ class ScoreForm(forms.ModelForm):
         fields = ('value', 'to_user')
         
         
-ScoreFormset = inlineformset_factory(PlayerShip, Score,  fields=('value', 'to_user'), extra=0)
+ScoreFormset = inlineformset_factory(PlayerShip, Score, fields=('value', 'to_user'), extra=3, fk_name='from_user')
+#ScoreFormset = formset_factory(Score, ScoreForm)
+
+#https://github.com/andrii843/footstat_python.git

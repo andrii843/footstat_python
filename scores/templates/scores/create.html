@@ -6,9 +6,14 @@
         {% csrf_token %}
         
         <table>
-            {{ formset }}
+            {% for form in formset %}
+                {% for field in form %}
+                    {{ field }}
+                {% endfor %}
+
+            {% endfor %}
         </table>
        <input type="submit" value="Save">
     </form>
 
-{% endblock %}
+{% endblock %} 
